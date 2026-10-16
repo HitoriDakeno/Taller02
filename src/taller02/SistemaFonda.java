@@ -299,32 +299,241 @@ public class SistemaFonda
 		
 	}
 
-
+	//Muestra las opciones para calcular cantidades y metricas de consumo.
 	private void menuMetricas()
 	{
+		int opcion;
+		
+		do {
+			
+			System.out.println("");
+			System.out.println("| ===[ CALCULAR METRICAS ] ===|");
+			System.out.println("");
+			System.out.println("1. Cantidad de choripanes en total");
+			System.out.println("2. Cantidad de terremotos en total");
+			System.out.println("3. Choripanes por usuario");
+			System.out.println("4. Terremotos por usuario");
+			System.out.println("5. KCal consimidas por usuario");
+			System.out.println("6. Dias ebrios por usuario");
+			System.out.println("7. Volver al menu principal");
+			System.out.println();
+			
+			System.out.print("Seleccione una opción: ");
+			opcion = LeerEntero(1,7);
+			
+			switch(opcion) {
+			case 1:
+				totalChoripanes();
+				break;
+			case 2:
+				totalTerremotos();
+				break;
+			case 3:
+				choripanesPorUsuario();
+				break;
+				
+			case 4:
+				terremotosPorUsuario();
+				break;
+			case 5:
+				kcalPorUsuario();
+				break;
+			case 6:
+				diasEbriosPorUsuario();
+				break;
+				
+			case 7:
+				break;
+			}
+			
+		}while(opcion != 7);
+		
+	}
+
+
+	
+	private void totalChoripanes()
+	{
 		// TODO Auto-generated method stub
 		
 	}
 
 
+	private void totalTerremotos()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void choripanesPorUsuario()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void terremotosPorUsuario()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void kcalPorUsuario()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void diasEbriosPorUsuario()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
+
+	//Muestra el submenu para agregar, editar o eliminar registros.
 	private void menuActualizarRegistro()
 	{
+		int opcion;
+		
+		do {
+			System.out.println("");
+			System.out.println("| ===[ ACTUALIZAR REGISTROS ] ===|");
+			System.out.println("");
+			System.out.println("1. Agregar");
+			System.out.println("2. Editar");
+			System.out.println("3. Eliminar");
+			System.out.println("4. Volver al menu principal");
+			System.out.println();
+			
+			System.out.print("Seleccione una opción: ");
+			opcion = LeerEntero(1,4);
+			
+			switch(opcion) {
+			case 1:
+				agregarRegistro();
+				break;
+			case 2:
+				editarRegistro();
+				break;
+			case 3:
+				eliminarRegistro();
+				break;
+				
+			case 4:
+				break;
+			}
+			
+		}while(opcion != 4);
+		
+	}
+	
+
+	private void agregarRegistro()
+	{
 		// TODO Auto-generated method stub
 		
 	}
 
 
+	private void editarRegistro()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void eliminarRegistro()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	
+
+
+	//muestra el submenu para consultar los registros de choripanes o terremotos
 	private void menuVerRegistros()
 	{
+		int opcion;
+		
+		do {
+			System.out.println("");
+			System.out.println("| ===[ VER REGISTROS ] ===|");
+			System.out.println("");
+			System.out.println("1. Choripanes");
+			System.out.println("2. Terremotos");
+			System.out.println("3. Volver al menu principal");
+			System.out.println();
+			
+			System.out.print("Seleccione una opción: ");
+			opcion = LeerEntero(1,3);
+			
+			switch(opcion) {
+			case 1:
+				mostrarRegistros("Choripan");
+				break;
+			case 2:
+				mostrarRegistros("Terremoto");
+				break;
+			case 3:
+				break;
+			}
+			
+			
+		}while(opcion != 3);
+		
+	}
+	
+
+	private void mostrarRegistros(String string)
+	{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
+	
 
 
-	private int LeerEntero(int i, int j)
+	//Solicita un numero entero hasta que el usuario ingrese uno dentro del rango indicado.
+	private int LeerEntero(int minimo, int maximo)
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		int numero = 0;
+		boolean valido = false;
+		
+		while(!valido) {
+			try {
+				String texto = lector.nextLine();
+				
+				if(texto.equals("")) {
+					System.out.println("No ingreso ninguna opcion.");
+					System.out.print("Intente nuevamente: ");
+				}
+				else {
+					numero = Integer.parseInt(texto);
+					
+					if(numero < minimo || numero > maximo) {
+						System.out.println("Opcion fuera de rango.");
+						System.out.print("Intente nuevamente: ");
+					} else {
+						valido = true;
+					}
+				}
+				
+			}catch(Exception e) {
+				System.out.println("Debe ingresar un numero.");
+				System.out.print("Intente nuevamente: ");
+			}
+		}
+		
+		return numero;
 	}
 	
 
