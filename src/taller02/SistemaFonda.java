@@ -248,19 +248,83 @@ public class SistemaFonda
 		}
 	}
 
-	
-	
-	
-
 	/*
-	 * inicia el menu iteractivo principal del programa.
+	 * Muestra el menu principal y ejecuta la opcion seleccionada hasta que el usuario elija salir
 	 * 
 	 */
 	
 	public void iniciar()
 	{
-		//se implementa la logica proximamente
+		int opcion;
 		
+		do {
+			System.out.println(".--------------------------------------------.");
+			System.out.println("|                                            |");
+			System.out.println("|             LA FONDA DEL PAPU              |");
+			System.out.println("|                                            |");
+			System.out.println("|          !Pase, coma y disfrute!           |");
+			System.out.println("|                                            |");
+			System.out.println("|                                            |");
+			System.out.println("'--------------------------------------------'");
+			System.out.println("");
+			System.out.println("Registros cargados: " + cantidadConsumos);
+			System.out.println("Participantes registrados: "+ cantidadParticipantes);
+			System.out.println("");
+			System.out.println("1. Ver registros");
+			System.out.println("2. Actualizar registros");
+			System.out.println("3. Calcular metricas");
+			System.out.println("4. Salir");
+			System.out.print("Selecciones una opción: ");
+			
+			opcion = LeerEntero(1,4);
+			
+			switch(opcion) {
+			case 1:
+				menuVerRegistros();
+				break;
+			case 2:
+				menuActualizarRegistro();
+				break;
+			case 3:
+				menuMetricas();
+				break;
+			case 4:
+				System.out.println("Adiós...");
+				break;
+			}
+			
+			
+		} while(opcion!=4);
+		
+		
+	}
+
+
+	private void menuMetricas()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void menuActualizarRegistro()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void menuVerRegistros()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private int LeerEntero(int i, int j)
+	{
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 
