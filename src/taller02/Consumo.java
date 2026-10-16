@@ -134,6 +134,7 @@ public class Consumo
 	 * para escribir y actualizar el archivo Consumido.txt con persistencia
 	 * 
 	 * @return Cadena con el formato exacto requerido por el archivo de texto
+	 * 
 	 */
 	
 	public String aFormatoArchivo()
