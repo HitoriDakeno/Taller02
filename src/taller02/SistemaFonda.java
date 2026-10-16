@@ -160,31 +160,92 @@ public class SistemaFonda
 		
 	}
 
-
+	/**
+	 * 
+	 * Busca un participante por su nombre sin distinguir entre mayusculas y minusculas.
+	 * 
+	 * 
+	 * @param nombre: nombre del participante que se desea buscar
+	 * @return posicion del participante si existe, o -1 si no se encuentra
+	 */
 	
 	
-	
-	
-	
-	//metodos de validaciones de datos para los archivos
-	private int buscarParticipante(String consumidor)
+	private int buscarParticipante(String nombre)
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		for(int i=0;i<cantidadParticipantes;i++) {
+			if(participantes[i].equalsIgnoreCase(nombre)) {
+				return i;
+			}
+		}
+		return -1;
 	}
+	
+	/**
+	 * Comprueba que un numero sea mayor que cero y no sea infinito positivo.
+	 * 
+	 * @param numero: valor numerico que se desea validar
+	 * @return true si el numero cumple las condiciones, false en caso contrario
+	 */
 
 
-	private boolean numeroPositivo(double litros)
+	private boolean numeroPositivo(double numero)
 	{
-		// TODO Auto-generated method stub
-		return false;
+		return numero > 0 && numero != Double.POSITIVE_INFINITY;
 	}
-
+	
+	/**
+	 * Comprueba que una fecha tenga el formato YYYY-MM-DD y que el dia
+	 * exista para el mes y el año indicados. Tambien considera los años bisiestos
+	 * 
+	 * @param fecha: fecha que se desea validar
+	 * @return true si la fecha es valida, false en caso contrario
+	 */
+	
+	
 
 	private boolean fechaValida(String fecha)
 	{
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			String[] partes = fecha.split("-");
+			
+			if(partes.length != 3) {
+				return false;
+			}
+			
+			if(partes[0].length() != 4 || partes[1].length() != 2 || partes[2].length() != 2) {
+				return false;
+				
+			}
+			
+			int año = Integer.parseInt(partes[0]);
+			int mes = Integer.parseInt(partes[1]);
+			int dia = Integer.parseInt(partes[2]);
+			
+			
+			if(año < 1 || mes < 1 || mes > 12 || dia < 1) {
+				return false;
+			}
+			
+			int diasMes = 31;
+			
+			if(mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+				diasMes = 30;
+			}
+			
+			if(mes == 2) {
+				diasMes = 28;
+				if(año % 400 == 0 || (año % 4 == 0 && año % 100 != 0)) {
+					diasMes = 29;
+				}
+				
+			}
+			
+			return dia <= diasMes;
+			
+	
+		} catch(Exception e) {
+			return false;
+		}
 	}
 
 	
