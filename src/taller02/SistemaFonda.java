@@ -12,11 +12,25 @@ public class SistemaFonda
 {
 	private Scanner lector;
 	
+	private String[] participantes = new String[200];
+	private int cantidadParticipantes = 0;
+	
+	private Consumo[] consumos = new Consumo[200];
+	
+	private int cantidadConsumos = 0;
+	
+	private String archParticipantes = "Participantes.txt";
+	private String archConsumos = "Consumido.txt";
+	
 	
 	/**
-	 * Constructor que recibe el lector global.
-	 * @param lector Scanner para la entrada por consola
+	 * Constructor que inicia el sistema y recibe el Scanner
+	 * utilizado para leer las opciones y los datos ingresados por teclado.
+	 * 
+	 * 
+	 * @param lector Scanner utilizado para leer desde teclado
 	 */
+	
 	
 	public SistemaFonda(Scanner lector)
 	{
@@ -32,10 +46,28 @@ public class SistemaFonda
 	
 	public void cargarArchivos()
 	{
-		// Se implementa la logica proximamente
+		cargarParticipantes();
+		cargarConsumos();
 		
 	}
 	
+	
+	//metodos para cargar los archivos correctamente
+	
+	private void cargarConsumos()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	private void cargarParticipantes()
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
 	/*
 	 * inicia el menu iteractivo principal del programa.
 	 * 
