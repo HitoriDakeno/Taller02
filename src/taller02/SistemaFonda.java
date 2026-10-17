@@ -18,7 +18,7 @@ public class SistemaFonda
 	//lector global
 	private Scanner lector;
 	
-	//arreglos estaticos y contadores de control
+	//arreglos y contadores de control
 	private String[] participantes = new String[200];
 	private int cantidadParticipantes = 0;
 	
@@ -316,7 +316,7 @@ public class SistemaFonda
 			System.out.println("2. Cantidad de terremotos en total");
 			System.out.println("3. Choripanes por usuario");
 			System.out.println("4. Terremotos por usuario");
-			System.out.println("5. KCal consimidas por usuario");
+			System.out.println("5. KCal consumidas por usuario");
 			System.out.println("6. Dias ebrios por usuario");
 			System.out.println("7. Volver al menu principal");
 			System.out.println();
@@ -643,7 +643,7 @@ public class SistemaFonda
 		boolean valido = false;
 		
 		while(!valido) {
-			System.out.println("mensaje");
+			System.out.print(mensaje);
 			
 			try {
 				numero = Double.parseDouble(lector.nextLine());
