@@ -26,7 +26,7 @@ Taller02/
 ├── Participantes.txt
 ├── Consumido.txt
 ├── README.md
-└── DiagramaTaller02.pdf
+└── DiagramaTaller02.drawio.pdf
 ```
 
 
