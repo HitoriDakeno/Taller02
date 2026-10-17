@@ -380,7 +380,7 @@ public class SistemaFonda
 			}
 		}
 		
-		System.out.println("total de terremotos tomados: "+total+"("+litrosTotales+" litros)");
+		System.out.println("total de terremotos tomados: "+total+" ("+litrosTotales+" litros)");
 		
 		
 	}
@@ -398,7 +398,7 @@ public class SistemaFonda
 				}
 			}
 			
-			System.out.println(participantes[p] + ":" + total);
+			System.out.println("- "+participantes[p] + ": " + total);
 		}
 		
 	}
@@ -428,8 +428,9 @@ public class SistemaFonda
 	private void kcalPorUsuario()
 	{
 		double totalFonda = 0;
-		
-		System.out.println("| ===[ KCAL POR USUARIO ] ===|");
+		System.out.println("");
+		System.out.println("            | ===[ KCAL POR USUARIO ] ===|");
+		System.out.println("");
 		System.out.printf("%-12s %12s %12s %12s%n", "Usuario", "Choripan", "Terremoto", "Total");
 		
 		for(int p = 0;p<cantidadParticipantes;p++) {
@@ -454,6 +455,7 @@ public class SistemaFonda
 			
 			
 		}
+		System.out.println("");
 		System.out.println("Consumo total de la fonda: "+totalFonda);
 		
 		
@@ -468,8 +470,10 @@ public class SistemaFonda
 	 */
 	private void diasEbriosPorUsuario()
 	{
+		System.out.println("");
 		System.out.println("| ===[ DIAS EBRIOS POR USUARIO ] ===|");
 		System.out.println("(Se cuentan 2 litros o mas en una misma fecha)");
+		System.out.println("");
 		
 		for(int p=0;p<cantidadParticipantes;p++) {
 			int diasEbrios = 0;
@@ -508,8 +512,8 @@ public class SistemaFonda
 					}
 				}
 			}
-			
-			System.out.println("Dias ebrio de "+participantes[p] + ":" + diasEbrios);
+			System.out.println("Dias ebrio de "+participantes[p] + ": " + diasEbrios);
+			System.out.println("");
 		}
 		
 	}
@@ -974,14 +978,14 @@ public class SistemaFonda
 		System.out.println("");
 		
 		if(tipo.equalsIgnoreCase("Choripan")) {
-			System.out.println("                                        CHORIPANES");
+			System.out.println("                        CHORIPANES");
 			System.out.println();
 			
-			System.out.printf("%-4s %-12s %8s %8s  %-12s %8s%n", "#", "Consumidor", "Largo", "Ancho", "Fecha", "KCal");
+			System.out.printf("%-4s %-12s %10s %10s %-14s %8s%n", "#", "Consumidor", "Largo", "Ancho", "Fecha", "KCal");
 			
 		} else {
-			System.out.println("                                        TERREMOTOS");
-			System.out.printf("%-4s %-12s %8s %-12s %8s%n", "#", "Consumidor", "Litros", "Fecha", "KCal");
+			System.out.println("                        TERREMOTOS");
+			System.out.printf("%-4s %-12s %10s %-12s %8s%n", "#", "Consumidor", "Litros", "Fecha", "KCal");
 		}
 		
 		for(int i=0; i<cantidadConsumos;i++) {
