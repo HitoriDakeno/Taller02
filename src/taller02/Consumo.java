@@ -145,17 +145,4 @@ public class Consumo
 		return "Terremoto;" + consumidor + ";" + litros + ";" + fecha;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }
