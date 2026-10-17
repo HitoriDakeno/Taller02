@@ -72,7 +72,7 @@ También permite calcular las kilocalorías de cada registro y generar el format
 Abrir una terminal y ejecutar el siguiente comando, reemplazando la dirección por la URL real del repositorio:
 
 ```bash
-git clone https://github.com/HitoriDakeno/Taller02.git
+git clone https://github.com/HitoriDakeno/Taller02
 ```
 
 Luego, ingresar a la carpeta del proyecto.
