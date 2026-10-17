@@ -1,7 +1,5 @@
 # Taller 2 - POO
 
-# Taller 2 - Programación Orientada a Objetos
-
 ## Descripción del proyecto
 
 Este proyecto corresponde al Taller 2 POO.
@@ -28,10 +26,9 @@ Taller02/
 ├── Participantes.txt
 ├── Consumido.txt
 ├── README.md
-└── DiagramaClases.pdf
+└── DiagramaTaller02.pdf
 ```
 
-*Nota: la estructura muestra los archivos principales del proyecto. El archivo `DiagramaClases.pdf` debe estar presente en el repositorio con el nombre que corresponda al archivo que hayas guardado.*
 
 ## Paquete principal
 
