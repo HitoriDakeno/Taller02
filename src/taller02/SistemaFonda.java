@@ -1,6 +1,9 @@
+//David Villalobos - 21.646.173-8 - ICCI
 package taller02;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -613,33 +616,77 @@ public class SistemaFonda
 		
 	}
 
+	//muestra los participantes disponibles y devuelve el nobre del que el usuario seleccione.
+	private String elegirParticipante()
+	{
+		if(cantidadParticipantes == 0) {
+			System.out.println("No hay participantes cargados.");
+			return "";
+		}
+		
+		System.out.println("Participantes disponibles: ");
+		
+		for(int i=0; i<cantidadParticipantes; i++) {
+			System.out.println("("+(i+1) + ") " + participantes[i]);
+		}
+		
+		System.out.print("Seleccione el consumidor: ");
+		int opcion = leerEntero(1,cantidadParticipantes);
+		return participantes[opcion-1];
+	
+	}
+
+	//solicita un numero mayor que cero y repite la lectura mientras el dato ingresado no sea valido.
+	private double leerPositivo(String mensaje)
+	{
+		double numero = 0;
+		boolean valido = false;
+		
+		while(!valido) {
+			System.out.println("mensaje");
+			
+			try {
+				numero = Double.parseDouble(lector.nextLine());
+				if(numeroPositivo(numero)) {
+					valido = true;
+				} else {
+					System.out.println("Debe ingresar un numero mayor a cero.");
+				}
+				
+			}catch(Exception e) {
+				System.out.println("Debe ingresar un numero valido");
+			}
+			
+			
+		}
+		return numero;
+	}
+
+	//solicita una fecha hasta que el usuario ingrese una fecha valida em formato YYYY-MM-DD
+	private String leerFecha()
+	{
+		String fecha = "";
+		boolean valido = false;
+		
+		while(!valido) {
+			System.out.print("Fecha (YYYY-MM-DD): ");
+			fecha = lector.nextLine();
+			
+			if(fechaValida(fecha)) {
+				valido = true;
+			} else {
+				System.out.println("Fecha invalida");
+			}
+		}
+		return fecha;
+	}
+	
+	
 	/*
 	 * permite seleccionar un registro y modificar sus datos
 	 * los campos vacios conservan sus valores actuales.
 	 * 
 	 */
-	
-	private String elegirParticipante()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	private double leerPositivo(String string)
-	{
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
-	private String leerFecha()
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
 	private void editarRegistro()
 	{
 		System.out.println("1. Choripan");
@@ -799,7 +846,7 @@ public class SistemaFonda
 			
 		}
 		
-		int cant = mostrarRegistro(nombreTipo);
+		int cant = mostrarRegistros(nombreTipo);
 		
 		if(cant == 0) {
 			System.out.println("No hay registros para eliminar.");
@@ -843,26 +890,45 @@ public class SistemaFonda
 	
 	
 	
-
-
-	private int mostrarRegistro(String nombreTipo)
+	
+	//busca la posicion del registro numero indicado dentro de los consumos de un tipo determinado
+	private int buscarPosTipo(String tipo, int numero)
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		int cont = 0;
+		
+		for(int i=0;i<cantidadConsumos;i++) {
+			if(consumos[i].getTipo().equalsIgnoreCase(tipo)) {
+				cont++;
+				if(cont == numero) {
+					return i;
+				}
+				
+			}
+		}
+		
+		return -1;
 	}
+	
+	
 
-
-	private int buscarPosTipo(String nombreTipo, int numero)
-	{
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-
+	// guarda todos los consumos actuales en el archivo y devuelve true si la escritura se completa correctamente
 	private boolean guardarConsumos()
 	{
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			BufferedWriter escritor = new BufferedWriter(new FileWriter(archConsumos));
+			for(int i=0;i<cantidadConsumos;i++) {
+				escritor.write(consumos[i].aFormatoArchivo());
+				escritor.newLine();
+			}
+			
+			escritor.close();
+			return true;
+			
+			
+		}catch(IOException e) {
+			System.out.println("Error al guardar los consumos: "+ e.toString());
+			return false;
+		}
 	}
 
 
